@@ -24,7 +24,7 @@ public class Driver {
 			
 			String responseText = "";
 			
-			for (Favorite eachPet : favorites) {
+			for (Favorite eachFavorite : favorites) {
 				System.out.println(eachFavorite);
 				if (eachFavorite != null) {
 					responseText += eachFavorite.name +"'s favorite team is:"+ eachFavorite.teamName + "<br>";
