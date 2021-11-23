@@ -1,12 +1,14 @@
 package com.revature.favTeam;
 
+import io.javalin.Javalin;
+
 public class Driver {
 	static Favorite[] favorites;
 	static int currentIndex;
 	
 	public static void main(String[] args) {
 		currentIndex=0;
-		favorites = new Favorite[10]; // initializing the pets array
+		favorites = new Favorite[10];
 		
 		Javalin app = Javalin.create();
 		
@@ -15,11 +17,11 @@ public class Driver {
 		app.post("/favteam", ctx -> {
 			
 			Favorite team = new Favorite();
-			Favorite.name = ctx.formParam("name");
-			Favorite.teamName = ctx.formParam("teamName");
+			team.name = ctx.formParam("name");
+			team.teamName = ctx.formParam("teamName");
 			
 			
-			favorites[currentIndex] = favorite;
+			favorites[currentIndex] = team;
 			currentIndex++;
 			
 			String responseText = "";
