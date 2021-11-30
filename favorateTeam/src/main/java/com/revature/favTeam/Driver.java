@@ -28,12 +28,11 @@ public class Driver {
 			String responseText = "";
 			
 			// adds name and team to response
-			for (int index=0;index<favorites.size();index++) {
+			for (int index=0;index < favorites.size();index++) {
 				System.out.println(favorites.get(index).getPersonName());
 				System.out.println(favorites.get(index).getTeamName());
-				if (favorites.get(index)!= null) {
-					responseText += favorites.get(index).getPersonName()+ "'s favorite team is: "+favorites.get(index).getTeamName()+ "<br>";
-				}
+				responseText += favorites.get(index).getPersonName() + 
+						"'s favorite team is: " + favorites.get(index).getTeamName() + "<br>";
 				
 			}
 			
