@@ -1,10 +1,11 @@
 package com.revature.favTeam;
 import java.util.ArrayList;
+import java.util.List;
 
 import io.javalin.Javalin;
 
 public class Driver {
-	public static ArrayList<Favorite>favorites;
+	public static List<Favorite>favorites;
 	
 	
 	public static void main(String[] args) {
