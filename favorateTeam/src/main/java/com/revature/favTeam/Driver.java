@@ -1,36 +1,43 @@
 package com.revature.favTeam;
+import java.util.ArrayList;
 
 import io.javalin.Javalin;
 
 public class Driver {
-	static Favorite[] favorites;
+	public static ArrayList<Favorite>favorites;
 	static int currentIndex;
 	
+	
 	public static void main(String[] args) {
-		currentIndex=0;
-		favorites = new Favorite[10];
+		favorites = new ArrayList<Favorite>();
+		currentIndex = 0;
+		 
 		
 		Javalin app = Javalin.create();
 		
 		app.start();
 		
 		app.post("/favteam", ctx -> {
+			// our information is going to be coming in as "form parameters"
+			Favorite fav = new Favorite();
+			fav.setPersonName(ctx.formParam("personName"));
+			fav.setTeamName(ctx.formParam("teamName"));
 			
-			Favorite team = new Favorite();
-			team.name = ctx.formParam("name");
-			team.teamName = ctx.formParam("teamName");
 			
 			
-			favorites[currentIndex] = team;
-			currentIndex++;
+			favorites.add(fav);
+			
 			
 			String responseText = "";
 			
-			for (Favorite eachFavorite : favorites) {
-				System.out.println(eachFavorite);
-				if (eachFavorite != null) {
-					responseText += eachFavorite.name +"'s favorite team is:"+ eachFavorite.teamName + "<br>";
+			
+			for (int index=0;index<favorites.size();index++) {
+				System.out.println(favorites.get(index).getPersonName());
+				System.out.println(favorites.get(index).getTeamName());
+				if (favorites.get(index)!= null) {
+					responseText += favorites.get(index).getPersonName()+ "'s favorite team is: "+favorites.get(index).getTeamName()+ "<br>";
 				}
+				
 			}
 			
 			ctx.html(responseText);
