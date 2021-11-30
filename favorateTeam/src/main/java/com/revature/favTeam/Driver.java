@@ -5,12 +5,10 @@ import io.javalin.Javalin;
 
 public class Driver {
 	public static ArrayList<Favorite>favorites;
-	static int currentIndex;
 	
 	
 	public static void main(String[] args) {
 		favorites = new ArrayList<Favorite>();
-		currentIndex = 0;
 		 
 		
 		Javalin app = Javalin.create();
