@@ -18,19 +18,16 @@ public class Driver {
 		app.start();
 		
 		app.post("/favteam", ctx -> {
-			// our information is going to be coming in as "form parameters"
+			// information from html page is coming in as "form parameters"
 			Favorite fav = new Favorite();
 			fav.setPersonName(ctx.formParam("personName"));
 			fav.setTeamName(ctx.formParam("teamName"));
 			
-			
-			
 			favorites.add(fav);
-			
 			
 			String responseText = "";
 			
-			
+			// adds name and team to response
 			for (int index=0;index<favorites.size();index++) {
 				System.out.println(favorites.get(index).getPersonName());
 				System.out.println(favorites.get(index).getTeamName());
